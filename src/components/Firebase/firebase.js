@@ -13,7 +13,22 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
+
+    this.auth = app.auth();
   }
+
+  // *** Auth API ***
+  signUp = (email, password) =>
+    this.auth.createUserWithEmailAndPassword(email, password);
+
+  signIn = (email, password) =>
+    this.auth.signInWithEmailAndPassword(email, password);
+
+  signOut = () => this.auth.signOut();
+
+  passwordChange = password => this.auth.currentUser.updatePassword(password);
+
+  passwordReset = email => this.auth.sendPasswordResetEmail(email);
 }
 
 export default Firebase;
