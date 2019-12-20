@@ -28,7 +28,7 @@ class SignInFormBase extends Component {
   }
 
   handleSubmit = e => {
-    e.perventDefault();
+    e.preventDefault();
 
     const { email, password } = this.state;
     this.props.firebase
