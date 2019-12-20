@@ -30,7 +30,7 @@ class SignUpFormBase extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const { username, email, passwordOne } = this.state;
+    const { email, passwordOne } = this.state;
 
     this.props.firebase
       .signUp(email, passwordOne)
