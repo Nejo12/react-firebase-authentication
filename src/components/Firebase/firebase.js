@@ -1,5 +1,6 @@
 import app from "firebase/app";
 import "firebase/auth";
+import "firebase/database";
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -32,9 +33,9 @@ class Firebase {
   passwordReset = email => this.auth.sendPasswordResetEmail(email);
 
   // *** User API ***
-  user = uid => this.db.ref(`user/${uid}`);
+  user = uid => this.db.ref(`users/${uid}`);
 
-  users = () => this.db.ref(`users`);
+  users = () => this.db.ref("users");
 }
 
 export default Firebase;
